@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Geist;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --primary-text: #0a0a0a;
+    --secondary-text: #737373;
+    --background: #ffffff;
+    --surface: #fafafa;
+    --border: #e9e9e9;
+    --input-bg: #ffffff;
+    --input-text: #0a0a0a;
+    --input-placeholder: #737373;
+    --input-border: #e9e9e9;
+    --input-caret: #0a0a0a;
+    --primary-button-bg: #0a0a0a;
+    --primary-button-text: #ffffff;
+    --primary-button-hover: #262626;
+    --primary-button-active: #404040;
+}
+
+.dark-mode {
+    --primary-text: #f4f4f5;
+    --secondary-text: #a1a1aa;
+    --background: #0c0c0f;
+    --surface: #18181b;
+    --border: #2a2a30;
+    --input-bg: #18181b;
+    --input-text: #f4f4f5;
+    --input-placeholder: #71717a;
+    --input-border: #2a2a30;
+    --input-caret: #f4f4f5;
+    --primary-button-bg: #f4f4f5;
+    --primary-button-text: #0a0a0a;
+    --primary-button-hover: #e4e4e7;
+    --primary-button-active: #d4d4d8;
+}
+
+::selection {
+    background-color: var(--primary-text);
+    color: var(--background);
+}
+
+body {
+    background-color: var(--background);
+    width: 100%;
+    max-width: 900px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+body,
+body * {
+    transition: 
+        background-color 0.2s ease-out,
+        color 0.2s ease-out,
+        border 0.2s ease-out;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-top-display {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+}
+
+.weather-top-display h1 {
+    font-family: "Geist Pixel";
+    font-weight: regular;
+    color: var(--primary-text);
+}
+
+.city-input {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    caret-color: var(--input-caret);
+    border: 1px solid var(--input-border);
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+.city-input::placeholder {
+    color: var(--input-placeholder);
+}
+
+form {
+    position: relative;
+}
+
+.get-weather-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 0.75rem;
+    border-top: 1px solid var(--input-border);
+    border-right: 1px solid var(--input-border);
+    border-bottom: 1px solid var(--input-border);
+    border-left: none;
+    border-radius: 0.5rem;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    cursor: pointer;
+}
+
+.dark-mode-button {
+    background-color: var(--primary-button-bg);
+    color: var(--primary-button-text);
+    font-family: "Geist Mono";
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.dark-mode-button:hover {
+    background-color: var(--primary-button-hover);
+}
+
+.dark-mode-button:active {
+    background-color: var(--primary-button-active);
+}
+
+.weather-container {
+    position: relative;
+    background-color: var(--surface);
+    color: var(--primary-text);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.weather-container img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+p {
+    color: var(--secondary-text);
+}
+
+.temperature-display {
+    font-family: "Geist Pixel";
+    font-size: 3rem;
+    color: var(--primary-text);
+    margin-top: 1rem;
+}
+
+.other-weather-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.humidity-info,
+.wind-info,
+.feels-like-info {
+    font-family: "Geist Mono";
+    font-weight: 500;
+    color: var(--primary-text);
+    font-weight: 650;
+}
+
+.error-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-text);
+}
+
+@media (max-width: 600px) {
+
+    .weather-top-display {
+        position: relative;
+    }
+
+    .weather-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .dark-mode-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .weather-container {
+        padding: 0.75rem;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .weather-container img {
+        position: absolute;
+        top: 0;
+        bottom: 0;  
+    }
+
+    .other-weather-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+}
+}
