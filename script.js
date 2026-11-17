@@ -21,10 +21,9 @@ weatherForm.addEventListener("submit", async event => {
 
     if (city) {
         try {
-            const weatherData = await getWeatherData(city);
-            displayWeatherInfo(weatherData);
+            const data = await getWeatherData(city);
+            displayWeatherInfo(data);
         } catch (error) {
-            console.error(error);
             displayError(error.message);
         }
     } else {
@@ -39,10 +38,10 @@ async function getWeatherData(city) {
 
     if (!response.ok) {
         throw new Error("could not fetch weather data");
-
     }
 
-    return await response.json();
+    const data = await response.json();
+    return data;
 }
 
 function displayWeatherInfo(data) {
@@ -68,7 +67,7 @@ function displayWeatherInfo(data) {
     windDisplay.textContent = "Wind";
     windInfo.textContent = `${(speed * 3.6).toFixed(1)} km/h`;
     feelsLikeDisplay.textContent = "Feels like";
-    feelsLikeInfo.textContent = `${(feels_like - 273.15).toFixed(1)}°`;
+    feelsLikeInfo.textContent = `${(feels_like - 273.15).toFixed(1)}°C`;
 
     getWeatherIcon(id, isDay);
 }
